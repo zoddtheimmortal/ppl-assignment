@@ -41,12 +41,12 @@ main :-
     write('Alex = ['),write(Department1),write(', '),write(Language1),write(', '),write(Project1),write(']'),nl,
     write('Ben = ['),write(Department2),write(', '),write(Language2),write(', '),write(Project2),write(']'),nl,
     write('Carla = ['),write(Department3),write(', '),write(Language3),write(', '),write(Project3),write(']'),nl,
-    write('Dana = ['),write(Department4),write(', '),write(Language4),write(', '),write(Project4),write(']'),nl.
-    # write('Alex = [Department1, Language1, Project1]'), nl,
-    # write('Ben = [Department2, Language2, Project2]'), nl,
-    # write('Carla = [Department3, Language3, Project3]'), nl,
-    # write('Dana = [Department4, Language4, Project4]').
-
+    write('Dana = ['),write(Department4),write(', '),write(Language4),write(', '),write(Project4),write(']').
+    % below print doesnt work
+    % write('Alex = [Department1, Language1, Project1]'), nl,
+    % write('Ben = [Department2, Language2, Project2]'), nl,
+    % write('Carla = [Department3, Language3, Project3]'), nl,
+    % write('Dana = [Department4, Language4, Project4]').
 
 % Run the main predicate
 ?- main.
