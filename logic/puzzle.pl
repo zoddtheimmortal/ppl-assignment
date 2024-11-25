@@ -18,13 +18,13 @@ project(web).
 project(embedded).
 project(data).
 
-clues(F,D,L,P):- friend(F),dept(D),lang(L),P='AI',D\=research,F\=dana.
-clues(F,D,L,P):- F=alex,dept(D),lang(L),project(P),D\=development,L\='c++'.
-clues(F,D,L,P):- friend(F),D=testing,project(P),L=python.
-clues(F,D,L,P):- F=ben,dept(D),lang(L),P=web,D\=testing.
 clues(F,D,L,P):- friend(F),D=design,L=java,project(P).
+clues(F,D,L,P):- F=alex,dept(D),lang(L),project(P),D\=development,L\='c++'.
+clues(F,D,L,P):- F=ben,dept(D),lang(L),P=web,D\=testing.
 clues(F,D,L,P):- F=carla,dept(D),lang(L),project(P),D\=development,P\=embedded.
 clues(F,D,L,P):- F=dana,dept(D),lang(L),project(P),L\=java,(D=research; D=testing).
+clues(F,D,L,P):- friend(F),dept(D),lang(L),P='AI',D\=research,F\=dana.
+clues(F,D,L,P):- friend(F),D=testing,project(P),L=python.
 clues(F,D,L,P):- friend(F),D=research,lang(L),P=data,L\=javascript.
 
 diff(A,B,C,D):- A\=B,A\=C,A\=D,B\=C,B\=D,C\=D.
