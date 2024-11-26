@@ -31,7 +31,7 @@ clue(F,D,L,P):-
 diff(A,B,C,D):- A\=B, A\=C, A\=D, B\=C, B\=D, C\=D.
 
 % Main predicate to print the solution
-puzzle :- 
+main :- 
     dept(D1), dept(D2), dept(D3), dept(D4),
     lang(L1), lang(L2), lang(L3), lang(L4),
     project(P1), project(P2), project(P3), project(P4),
@@ -50,5 +50,5 @@ puzzle :-
     write('Carla = ['), write(D3), write(', '), write(L3), write(', '), write(P3), write(']'), nl,
     write('Dana = ['), write(D4), write(', '), write(L4), write(', '), write(P4), write(']'), nl.
 
-% Run the puzzle predicate
-?- puzzle.
+% Run the main predicate
+?- main.
