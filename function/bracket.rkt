@@ -6,18 +6,23 @@
         len
         (loop (cdr lst) (+ len 1)))))
 
-(define (checkshort x lst n)
-  (if (null? lst)
-      '()
-      (let ((firstelem (car lst)) (remelems (cdr lst)))
-        (if (list? firstelem)
-            (let ((sublist (checkshort x firstelem n))
-                  (rest (checkshort x remelems n)))
-              (if (< (length firstelem) n)
-                  (append (list (cons x sublist)) rest)
-                  (append (list sublist) rest)))       
-            (append (list firstelem) (checkshort x remelems n))))))
+(define (append_list lst1 lst2)
+  (if (null? lst1) lst2
+      (cons (car lst1) (append_list (cdr lst1) lst2))))
 
+(define (checkshort x lst n)
+  (cond
+    ((null? lst) '())
+    ((list? (car lst)) 
+     (let ((first (car lst)) (rest (cdr lst)))
+       (let ((processed-first (checkshort x first n))
+             (processed-rest (checkshort x rest n)))
+         (if (< (length first) n)
+             (append_list (list (append_list (list x) processed-first)) processed-rest)
+             (append_list (list processed-first) processed-rest)))))
+    (else 
+     (let ((first (car lst)) (rest (cdr lst)))
+       (append_list (list first) (checkshort x rest n))))))
 
 (define (print-insert-result x lst n)
   (display (checkshort x lst n)))
